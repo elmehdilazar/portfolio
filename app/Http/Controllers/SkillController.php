@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Projects;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SkillController extends Controller
 {
@@ -12,7 +13,7 @@ class SkillController extends Controller
      */
     public function index()
     {
-        return "Skills";    
+        return Inertia('skills/index');
     }
 
     /**
@@ -20,7 +21,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+       return Inertia('skills/create');
     }
 
     /**
