@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSkillRequest;
 use App\Models\Projects;
+use App\Models\Skills;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class SkillController extends Controller
@@ -27,9 +30,17 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSkillRequest $request)
     {
-        //
+        if($request->hasFile('image')){
+$image=$request->file('image')->store('skills');
+Skills::create([
+    'name' => $request->name,
+    'image'=>$image
+]);
+return Redirect::route("skills.index");
+        }
+        return Redirect::back();
     }
 
     /**
