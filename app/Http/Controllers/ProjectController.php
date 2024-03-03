@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projects;
+use App\Models\Skills;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -13,6 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
+
+
         return Inertia('projects/index');
     }
 
@@ -21,7 +24,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return  Inertia('projects/create');
+        $skills = Skills::all();
+        return  Inertia('projects/create', compact('skills'));
     }
 
     /**
