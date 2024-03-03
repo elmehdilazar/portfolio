@@ -24,7 +24,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-       return Inertia('skills/create');
+        return Inertia('skills/create');
     }
 
     /**
@@ -32,13 +32,13 @@ class SkillController extends Controller
      */
     public function store(StoreSkillRequest $request)
     {
-        if($request->hasFile('image')){
-$image=$request->file('image')->store('skills');
-Skills::create([
-    'name' => $request->name,
-    'image'=>$image
-]);
-return Redirect::route("skills.index");
+        if ($request->hasFile('image')) {
+            $image = $request->file('image')->store('skills');
+            Skills::create([
+                'name' => $request->name,
+                'image' => $image
+            ]);
+            return Redirect::route("skills.index");
         }
         return Redirect::back();
     }

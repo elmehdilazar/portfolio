@@ -56,7 +56,6 @@
 </template>
 <script setup>
 import Checkbox from '@/Components/Checkbox.vue';
-
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
